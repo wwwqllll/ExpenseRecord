@@ -1,8 +1,13 @@
 <ul>
-  <li *ngFor="let x of records">
-    {{ x }}
-</li>
+  <li *ngFor="let x of records; let i = index">
+    {{ x }}<button (click)="delete(i)">Delete</button>
+  </li>
+
 </ul>
+
+
+
+
 <input type="text" [(ngModel)]="record">
 <button (click)="add()">Add</button>
 <br>

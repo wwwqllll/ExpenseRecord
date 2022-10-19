@@ -32,8 +32,8 @@ export class RecordComponent implements OnInit {
     this.callApi(this.record);
   }
 
-  delete(recordToDel: string) {
-    this.records.splice(this.record.indexOf(recordToDel),1);
+  delete(IdToDel: number) {
+    this.records.splice(IdToDel,1);
   }
 
   callApi(record: string) {
