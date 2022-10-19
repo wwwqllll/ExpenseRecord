@@ -11,6 +11,7 @@ export class RecordComponent implements OnInit {
 
   record!: string;
   feedback!: string;
+  records!: string[];
 
   private baseUrl: string;
   private http: HttpClient;
@@ -18,13 +19,21 @@ export class RecordComponent implements OnInit {
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.http = http;
     this.baseUrl = baseUrl;
+    this.records = new Array(0);  
   }
 
   ngOnInit(): void {
   }
 
   add() {
+    this.records.reverse();
+    this.records.push(this.record);
+    this.records.reverse();
     this.callApi(this.record);
+  }
+
+  delete(recordToDel: string) {
+    this.records.splice(this.record.indexOf(recordToDel),1);
   }
 
   callApi(record: string) {

@@ -1,3 +1,8 @@
+<ul>
+  <li *ngFor="let x of records">
+    {{ x }}
+</li>
+</ul>
 <input type="text" [(ngModel)]="record">
 <button (click)="add()">Add</button>
 <br>
